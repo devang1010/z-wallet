@@ -33,20 +33,13 @@ export function createAccountFromPrivateKey(privateKey: string): Partial<HDNode>
     privateKey,
     publicKey,
     address,
-    isImported: true //indicates account is imported to wallet using private key and is not generated from master seed
+    isImported: true 
   };
   return account;
 }
 
 export function getNetworkByChainID(chainID: number) {
     try {
-      /*
-        Network = {
-          chainId,
-          ensAddress,
-          name
-        }
-      */
       const network = ethers.providers.getNetwork(chainID);
       return network;
     }
@@ -57,7 +50,7 @@ export function getNetworkByChainID(chainID: number) {
   
 export function setWeb3Provider(chainID: number) {
   try {
-    // const PROVIDER_URL = chainID===4 ? REACT_APP_RINKEBY_PROVIDER_URL : REACT_APP_MAINNET_PROVIDER_URL;
+    
     const PROVIDER_URL = REACT_APP_MAINNET_PROVIDER_URL;
     
     
@@ -70,9 +63,6 @@ export function setWeb3Provider(chainID: number) {
   }
 }
 
-// When your component unmounts or no longer needs updates
-// Ensure provider is defined or remove this line if unnecessary
-// unsubscribeIfExistAllAccountBalances(provider);
 export async function balanceOf(provider: ethers.providers.JsonRpcProvider, address: string) {
   if(!address) return BigNumber.from(0);
   if(!provider) {

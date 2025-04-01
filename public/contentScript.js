@@ -1,6 +1,3 @@
-// contentScript.js
-// This script runs in the context of the web page
-
 // Inform the page that the Z-Wallet extension is available
 window.postMessage({ type: "Z_WALLET_AVAILABLE" }, "*");
 
